@@ -1,0 +1,118 @@
+<!DOCTYPE html>{seacms:strip}
+<html lang="zh-cn">
+
+<head>
+    {seacms:load block_header.html}
+    <title>{playpage:name}在线播放-{playpage:typename}-{seacms:sitename}</title>
+    <meta name="keywords" content="{playpage:name}免费在线观看,{playpage:name}剧情介绍,{playpage:name}电影海报">
+    <meta name="description" content="{playpage:name}剧情:{playpage:des len=50}">
+    <script src="/{seacms:sitepath}js/common.js"></script>
+    <script src="/{seacms:sitepath}js/function.js"></script>
+    <script src="/{seacms:sitepath}js/play.js"></script>
+</head>
+
+<body class="mback">
+    {seacms:top}
+    <div class="icon">
+        <section class="iplaytop">
+            <div class="container">
+                <div class="col-l">
+                    <div class="mtips"><i class="iconfont">&#xe630;</i><div class="mtxt">正在播放：{playpage:name} {playpage:typename}</div><i class="iconfont" onclick="closeTips()">&#xe622;</i></div>
+                    <div class="iplays">
+                        <div id="play-main" class="play-main">
+                            <div id="video-player" class="video-player">
+                                <div class="barrage">
+                                    <script>
+                                    var playn = "{playpage:name}",
+                                        playp = "{playpage:part}";
+                                    </script>{playpage:playurlinfo}{playpage:player}<embed height=100% width=100% pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" quality="high" bgcolor="#000000" allowscriptaccess="always" allowfullscreen="true" wmode="Opaque">
+                                </div>
+                                <div id="cyTvbarrage" role="cylabs" data-use="tvbarrage" sid="new{playpage:id}" sourceid="{playpage:id}" cid="{playpage:typeid}"></div>
+                            </div>
+                            <div class="player-pop">
+                                <div class="player-pop-toggle">
+                                    <span class="u-nameplate">弹幕</span>
+                                    <i class="u-toggle u-toggle-on"><i class="u-toggle-button"></i></i>
+                                </div>
+                                <p class="player-pop-tips"></p>
+                                <a class="player-pop-link" href="#comment_list">播放失败反馈</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="separator separator-open mhide">
+                        <div class="cell-wrap"><i></i><span>展开列表</span></div>
+                    </div>
+                </div>
+                <div class="col-r">
+                    <div class="play-asso">
+                        <div class="play-hd">
+                            <div class="play-txt">
+                                <h2>{playpage:name}</h2>
+                                <p>{playpage:note}</p>
+                            </div>
+                            <div class="headtab pull-right"><a href="javascript:;" id="htxt">其他播放资源 切换 <span class="caret"></span></a>
+                                <div class="dropdown right" id="headtab">{playpage:playlist}<a href="#tab[playlist:i]" class="tab[playlist:i]">[playlist:from]</a>{/playpage:playlist}</div>
+                            </div>
+                            <h4 class="active active-tab">{playpage:from}</h4>
+                        </div>
+                        <div class="play-bd">
+                            <div class="play-list" id="p-list">{playpage:playlist}
+                                <ul class="clearfix{if:[playlist:from] == {playpage:from}} show{else} hide{end if}" id="playlist[playlist:i]">[playlist:link target=_self]
+                                </ul>{/playpage:playlist}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="describe">
+            <div class="video-intro container">
+                <div class="video-title">
+                    <h1>{playpage:name}</h1></div>
+                <div class="video-tags"><span class="tags">{playpage:typename}</span></div>
+                <div class="clearfix"></div>
+                <p class="hoster"><span>导演：{playpage:director}</span><span style="padding-left: 30px">主演：{playpage:actor len=60}</span><span class="hide">播放：{playpage:hit}次</span></p>
+                <div class="infor">{playpage:des}</div>
+            </div>
+        </section>
+    </div>
+    <section class="idetail container">
+        <div class="col-l">
+            <div class="tv-hd v-border">
+                <h2><span>为你推荐</span></h2>
+            </div>
+            <div class="tv-bd">
+                <ul class="tv-list tv-hotlist">{seacms:videolist type=current order=dayhit num=12}{seacms:load block_video.html}{/seacms:videolist}
+                </ul>
+            </div>
+            <div class="tv-hd v-border">
+                <h2><span>影片评论</span></h2><span class="s_num">共有<em>44790</em>条影评</span>
+            </div>
+            <div class="tv-bd">
+                <div class="comment">
+                    {playpage:comment}
+                </div>
+            </div>
+        </div>
+        <div class="col-r">
+            <div class="tv-hd">
+                <h2>{playpage:typename} • 热播榜</h2></div>
+            <div class="tv-bd">
+                <ul class="v-rank clearfix">{seacms:videolist type=current order=hit num=5 start=1} {seacms:load block_ranking.html} {/seacms:videolist}
+                </ul>
+            </div>
+            <div class="tv-hd">
+                <h2>{playpage:publisharea} • 热播榜</h2></div>
+            <div class="tv-bd">
+                <ul class="v-rank clearfix">{seacms:videolist type=current order=hit num=5 area={playpage:publisharea}} {seacms:load block_ranking.html} {/seacms:videolist}
+                </ul>
+            </div>
+        </div>
+    </section>
+    {seacms:foot}
+    <script src="/{seacms:sitepath}js/play.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cysuNhzI6"></script>
+</body>
+
+</html>
+{/seacms:strip}

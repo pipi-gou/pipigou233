@@ -1,0 +1,12 @@
+				<div class="swiper-container">
+                    <div class="swiper-wrapper">{seacms:videolist num=8 commend=5}
+                        <div class="swiper-slide{if:[videolist:i]=1} swiper-slide-center none-effect{end if}">
+                            <a href="[videolist:playlink]" title="[videolist:name]"><img data-src="[videolist:spic]" class="swiper-lazy"><p>[videolist:name]丨[videolist:publishtime] [videolist:nolinkactor len=10] [videolist:typename]</p><div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div></a>
+                        </div>{/seacms:videolist}
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="button">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>

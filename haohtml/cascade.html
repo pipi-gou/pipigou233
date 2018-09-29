@@ -1,0 +1,126 @@
+<!DOCTYPE html>{seacms:strip}
+<html lang="zh-cn">
+
+<head>
+    {seacms:load block_header.html}
+    <title>{seacms:sitename}-高级搜索-{searchpage:typename}</title>
+    <meta name="keywords" content="{seacms:searchword},{seacms:sitename}">
+    <meta name="description" content="{seacms:searchword},{seacms:sitename}">
+</head>
+
+<body>
+    {seacms:top}
+    <div class="icon">
+        <div class="container">
+            <section class="iselect clearfix">
+                <a href="/{seacms:sitepath}search.php?searchtype=5&tid=0" {if:{searchpage:typename}==全部} class="cur" {end if} title="全部"><em>全部</em><i class="i_arrow"></i></a> {seacms:menulist type=top}<a href="/{seacms:sitepath}search.php?searchtype=5&tid=[menulist:typeid]" {if:{searchpage:type}==[menulist:typeid]} class="cur" {end if} title="[menulist:typename]"><em>[menulist:typename]</em><i class="i_arrow"></i></a>{/seacms:menulist}
+                <div class="onsel pull-right">{if:{searchpage:typename}
+                    <> 全部}已选择{elseif:{searchpage:typename}
+                        <>全部}已选择{elseif:{searchpage:jq}
+                            <>全部}已选择{elseif:{searchpage:area}
+                                <>全部}已选择{elseif:{searchpage:year}
+                                    <>全部}已选择{elseif:{searchpage:lang}
+                                        <>全部}已选择{elseif:{searchpage:state}
+                                            <>全部}已选择{elseif:{searchpage:letter}
+                                                <>全部}已选择{else}请选择筛选条件{end if} {if:{searchpage:typename}
+                                                    <>全部}<span>{searchpage:typename}</span>{end if} {if:{searchpage:jq}
+                                                        <>全部}<span>{searchpage:jq}</span>{end if} {if:{searchpage:area}
+                                                            <>全部}<span>{searchpage:area}</span>{end if} {if:{searchpage:year}
+                                                                <>全部}<span>{searchpage:year}</span>{end if} {if:{searchpage:lang}
+                                                                    <>全部}<span>{searchpage:lang}</span>{end if} {if:{searchpage:state}
+                                                                        <>全部}<span>{searchpage:state}</span>{end if} {if:{searchpage:letter}
+                                                                            <>全部}<span>{searchpage:letter}</span>{end if}</div>
+            </section>
+            <ul class="select_list clearfix">
+                <li class="mshow">
+                    <span class="v-tit">频道：</span>
+                    <p class="p_select"><span><a {if:{searchpage:typename} == 全部}class="cur" {end if} href="{seacms:indexlink}search.php?searchtype=5&tid=0" title="全部">全部</a></span>{seacms:menulist type=top}<span><a {if:{searchpage:type}==[menulist:typeid] }class="cur" {end if} {seacms:smallmenulist type=[menulist:typeid]}{if:{searchpage:type}==[smallmenulist:typeid]} class="cur"{end if}{/seacms:smallmenulist} href="search.php?searchtype=5&tid=[menulist:typeid]" title="[menulist:typename]">[menulist:typename]</a></span>{/seacms:menulist}</p>
+                </li>
+                <li class="{if:{searchpage:typename}==全部}hide{elseif:{searchpage:type} == 3 }hide{elseif:{searchpage:type} == 4 }hide{elseif:{searchpage:type} == 28}hide{end if}">
+                    <span class="v-tit">类型：</span>
+                    <p class="p_select">{seacms:menulist type=top}{if:{searchpage:type}==[menulist:typeid]}<span><a class="cur" href="search.php?searchtype=5&tid=[menulist:typeid]" title="全部">全部</a></span>{end if}{/seacms:menulist}{seacms:menulist type=son}{if:{searchpage:type}==[menulist:typeid]}<span><a href="search.php?searchtype=5&tid=[menulist:upid]" title="全部">全部</a></span>{end if}{/seacms:menulist}{seacms:menulist type=son}<span><a {if:{searchpage:type}==[menulist:typeid]}class="cur"{end if} href="search.php?searchtype=5&tid=[menulist:typeid]" title="[menulist:typename]">[menulist:typename]</a></span>{/seacms:menulist}</p>
+                </li>
+                <li{if:{searchpage:typename}==全部} class="hide"{elseif:{searchpage:type} == 28} class="hide"{else} class="mhide"{end if}>
+                    <span class="v-tit">剧情：</span>
+                    <p class="p_select">{seacms:jqitemlist} {if:[jqitemlist:i] == 1}<span><a{subif: [jqitemlist:value]={searchpage:jq}} class="cur" {end subif} href="[jqitemlist:link]" title="[jqitemlist:value]">[jqitemlist:value]</a></span>{end if} {if:[jqitemlist:i] > 1 && [jqitemlist:i]
+                        < 14} <span {subif:{searchpage:type}==1 }{elseif:{searchpage:type}> 4 && {searchpage:type}
+                            < 13}{else}class="hide" {end subif}>
+                                <a{subif: [jqitemlist:value]={searchpage:jq}} class="cur" {end subif} href="[jqitemlist:link]" title="[jqitemlist:value]">[jqitemlist:value]</a>
+                                    </span>
+                                    {end if} {if:[jqitemlist:i] > 13 && [jqitemlist:i]
+                                    < 29} <span{subif:{searchpage:type}==2 }{elseif:{searchpage:type}> 12 && {searchpage:type}
+                                        < 32}{else} class="hide" {end subif}>
+                                            <a{subif: [jqitemlist:value]={searchpage:jq}} class="cur" {end subif} href="[jqitemlist:link]" title="[jqitemlist:value]">[jqitemlist:value]</a>
+                                                </span>
+                                                {end if} {if:[jqitemlist:i] > 28 && [jqitemlist:i]
+                                                < 43} <span {subif:{searchpage:type} <> 3 }class="hide"{end subif}>
+                                                    <a{subif: [jqitemlist:value]={searchpage:jq}} class="cur" {end subif} href="[jqitemlist:link]" title="[jqitemlist:value]">[jqitemlist:value]</a>
+                                                        </span>
+                                                        {end if} {if:[jqitemlist:i] > 42 && [jqitemlist:i]
+                                                        < 56} <span {subif:{searchpage:type} <> 4 }class="hide"{end subif}>
+                                                            <a{subif: [jqitemlist:value]={searchpage:jq}} class="cur" {end subif} href="[jqitemlist:link]" title="[jqitemlist:value]">[jqitemlist:value]</a>
+                                                                </span>
+                                                                {end if} {/seacms:jqitemlist}
+                    </p>
+                </li>
+                <li>
+                    <span class="v-tit">地区：</span>
+                    <p class="p_select">{seacms:areaitemlist}<span><a {if: [areaitemlist:value]={searchpage:area}}class="cur" {end if} href="[areaitemlist:link]" title="[areaitemlist:value]">[areaitemlist:value]</a></span>{/seacms:areaitemlist}</p>
+                </li>
+                <li>
+                    <span class="v-tit">年份：</span>
+                    <p class="p_select">{seacms:yearitemlist}<span><a{if: [yearitemlist:value]={searchpage:year}} class="cur" {end if} href="[yearitemlist:link]" title="[yearitemlist:value]">[yearitemlist:value]</a></span>{/seacms:yearitemlist}</p>
+                </li>
+                <li class="mhide">
+                    <span class="v-tit">语言：</span>
+                    <p class="p_select">{seacms:langitemlist}<span><a{if: [langitemlist:value]={searchpage:lang}} class="cur" {end if} href="[langitemlist:link]" title="[langitemlist:value]">[langitemlist:value]</a></span>{/seacms:langitemlist}</p>
+                </li>
+                <li class="mhide">
+                    <span class="v-tit">状态：</span>
+                    <p class="p_select">{seacms:stateitemlist}<span><a{if: [stateitemlist:value]={searchpage:state}} class="cur" {end if} href="[stateitemlist:link]" title="[stateitemlist:value]">[stateitemlist:value]</a></span>{/seacms:stateitemlist}</p>
+                </li>
+                <li class="mhide">
+                    <span class="v-tit">字母：</span>
+                    <p class="p_select">{seacms:letteritemlist}
+                        <span{if: [letteritemlist:value]=全部} class="hide" {end if}>
+                            <a{if: [letteritemlist:value]={searchpage:letter}} class="cur" {end if} href="[letteritemlist:link]" title="[letteritemlist:value]">[letteritemlist:value]</a>
+                                </span>{/seacms:letteritemlist}</p>
+                </li>
+            </ul>
+            <section class="select_con">
+                <div class="v-hd clearfix">
+                    <p class="p_tab"><a href="{searchpage:order-time-link}" title="按时间" class="{if:{searchpage:ordername}==time}cur{end if}">按时间</a><a href="{searchpage:order-hit-link}" title="按人气" class="{if:{searchpage:ordername}==hit}cur{end if}">按人气</a><a href="{searchpage:order-commend-link}" title="按推荐" class="{if:{searchpage:ordername}==commend}cur{end if}">按推荐</a></p>
+                    <span class="s_num">共有<em>{cascadelist:recordcount}</em>部影片</span>
+                    <div class="p_btn">
+                    </div>
+                </div>
+                <div class="v-bd clearfix">
+                    <div class="v_con_box">
+                        <ul class="tv-list clearfix">{seacms:cascadelist size=36 order=time}
+                            <li>
+                                <div class="v-pic">
+                                    <img data-src="[cascadelist:pic]" class="thumb" alt="[cascadelist:name]"> {if:"[cascadelist:note]"
+                                    <> ""}<span class="v-tips">[cascadelist:note]</span>{end if} <a class="v-playBtn" href="[cascadelist:link]" title="[cascadelist:name]"><i></i></a>
+                                </div>
+                                <div class="v-txt">
+                                    <p class="v-tit"><a title="[cascadelist:name]" href="[cascadelist:link]">[cascadelist:name]</a></p>
+                                    <p class="s-des">演员：[cascadelist:actor]</p>
+                                    <p class="s-des">导演：[cascadelist:director]</p>
+                                </div>
+                            </li>{/seacms:cascadelist}
+                        </ul>
+                        <div class="v-page clearfix"><a href="{cascadelist:firstlink}" style="display:{if:{cascadelist:page}>1}inline-block{else}none{end if}">首页</a>
+                            <a href="{cascadelist:backlink}" style="display:{if:{cascadelist:page}>1}inline-block{else}none{end if}">上一页</a> {cascadelist:pagenumber len=6}<a href="[pagenumber:link]" class="mhide {if:{cascadelist:page}==[pagenumber:page]}cur{end if}">[pagenumber:page]</a>{/cascadelist:pagenumber}
+                            <span class="num hide">{cascadelist:page}/{cascadelist:pagecount}</span>
+                            <a href="{cascadelist:nextlink}">下一页</a>
+                            <a href="{cascadelist:lastlink}">尾页</a></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    {seacms:foot}
+</body>
+
+</html>
+{/seacms:strip}

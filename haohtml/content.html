@@ -1,0 +1,126 @@
+<!DOCTYPE html>{seacms:strip}
+<html lang="zh-cn">
+
+<head>
+    {seacms:load block_header.html}
+    <title>{playpage:name}在线播放-{playpage:typename}-{seacms:sitename}</title>
+    <meta name="keywords" content="{playpage:name}免费在线观看,{playpage:name}剧情介绍,{playpage:name}迅雷下载">
+    <meta name="description" content="{playpage:name}剧情:{playpage:des len=50}">
+    <script src="/{seacms:sitepath}js/common.js"></script>
+    <script src="/{seacms:sitepath}js/function.js"></script>
+</head>
+
+<body class="mback">
+    {seacms:top}
+    <div class="icon">
+        <section class="detail_top">
+            <div class="detail_top_con container">
+                <div class="v_path clearfix">{playpage:textlink}</div>
+                <div class="clearfix">
+                    <div class="poster_placeholder">
+                        <div class="v-pic">
+                            <img src="{playpage:pic}" alt="{playpage:name}">
+                            <a href="{playpage:playlink}" class="v-playBtn"><i></i></a>
+                        </div>
+                        <p class="p_fun">
+                            <a href="#comment" target="_self"><i class="iconfont"></i>评论<em>(9)</em></a>
+                            <i class="i_line"></i>
+                            <a href="javascript:AddFav('{playpage:id}','')" class="js-addFavorite"><i class="iconfont"></i>收藏</a>
+                        </p>
+                    </div>
+                    <div class="txt_intro_con">
+                        <div class="tit">
+                            <h1>{playpage:name}</h1>
+                            <p class="p_txt">
+                                <em class="em_num">{playpage:note}</em>
+                                <em class="em_score">{playpage:score}<i>分</i></em><em class="hide">播放：{playpage:hit}次</em>
+                            </p>
+                        </div>
+                        <ul class="txt_list clearfix">
+                            <li class="clearfix"><em class="em_tit">主演：</em>{playpage:actor len=60}</li>
+                            <li class="clearfix"><em class="em_tit">导演：</em>{playpage:director}<em class="em_tit">地区：</em>{playpage:publisharea}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em class="em_tit">类型：</em><a href="/{seacms:sitepath}search.php?searchtype=5&tid={playpage:typeid}" title="{playpage:typename}">{playpage:typename}</a></li>
+                            <li class="li_intro clearfix">
+                                <em class="em_tit">简介：</em>
+                                <p class="p_intro" id="synopsis_txt">{playpage:des len=150}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="play_source">
+                        <!-- 选择播放源 -->
+                        <div class="play_source_tab clearfix" id="playNumTab">{playpage:playlist order=asc}
+                            <a href="javascript:void(0);" {if:[playlist:i]==1}class="cur" {end if}id="play[playlist:i]" titile="[playlist:from]"><img src="images/img/newLogo/{if:[playlist:from]=='PPTV视频'}pptv
+                            {elseif:[playlist:from]=='腾讯视频'}qq
+                            {elseif:[playlist:from]=='芒果视频'}mgtv
+                            {elseif:[playlist:from]=='搜狐视频'}sohu
+                            {elseif:[playlist:from]=='奇艺视频'}qiyi
+                            {elseif:[playlist:from]=='乐视视频'}letv
+                            {elseif:[playlist:from]=='腾讯在线'}qq
+                            {elseif:[playlist:from]=='芒果在线'}mgtv
+                            {elseif:[playlist:from]=='搜狐在线'}sohu
+                            {elseif:[playlist:from]=='奇艺在线'}qiyi
+                            {elseif:[playlist:from]=='乐视在线'}letv
+                            {elseif:[playlist:from]=='华数TV'}wasu
+                            {elseif:[playlist:from]=='优酷在线'}youku
+                            {elseif:[playlist:from]=='土豆视频'}tudou
+                            {elseif:[playlist:from]=='1905'}m1905
+                            {elseif:[playlist:from]=='酷米视频'}kumi
+                            {elseif:[playlist:from]=='哔哩哔哩'}bilibili
+                            {elseif:[playlist:from]=='暴风影音'}baofeng
+                            {elseif:[playlist:from]=='56视频'}56
+                            {elseif:[playlist:from]=='pps'}pps
+                            {elseif:[playlist:from]=='优酷视频'}youku{else}all{end if}.png">[playlist:from]</a>{/playpage:playlist}
+                            <i class="iLine"></i>
+                        </div>
+                        <div class="v_con_box">{playpage:playlist order=asc}
+                            <ul class="play_num_list{if:[playlist:i]==1} show{else} hide{end if} clearfix">
+                                [playlist:link target=_self]</ul>{/playpage:playlist}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="idetail container">
+            <div class="col-l">
+                <div class="tv-hd v-border">
+                    <h2><span>剧情介绍</span></h2>
+                </div>
+                <div class="tv-bd">
+                    <div class="infor_intro">
+                        {playpage:des}
+                    </div>
+                </div>
+                <div class="tv-hd v-border">
+                    <h2><span>好看的{playpage:typename}</span></h2>
+                </div>
+                <div class="tv-bd">
+                    <ul class="tv-list tv-hotlist">{seacms:videolist type={seacms:currenttypeid} num=12 order=time}
+                        <li>{seacms:load block_videotext.html}</li>{/seacms:videolist}
+                    </ul>
+                </div>
+                <div class="tv-hd v-border">
+                    <h2><span>影片评论</span></h2><span class="s_num">共有<em>44790</em>条影评</span>
+                </div>
+                <div class="tv-bd">
+                    <div class="comment" id="comment">{playpage:comment}</div>
+                </div>
+            </div>
+            <div class="col-r">
+                <div class="tv-hd">
+                    <h2>本周 • 热播榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">{seacms:videolist type={seacms:currenttypeid} order=weekhit num=10}{seacms:load block_ranking.html}{/seacms:videolist}</ul>
+                </div>
+                <div class="tv-hd">
+                    <h2>{playpage:publisharea} • 热播榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">{seacms:videolist type=all num=5 order=dayhit rel=y}{seacms:load block_ranking.html}{/seacms:videolist}
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    {seacms:foot}
+</body>
+
+</html>
+{/seacms:strip}

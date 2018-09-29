@@ -1,0 +1,62 @@
+<!DOCTYPE html>{seacms:strip}
+<html lang="zh-cn">
+
+<head>
+    {seacms:load block_header.html}
+    <title>{seacms:searchword}-{seacms:sitename}</title>
+    <meta name="keywords" content="{seacms:searchword},{seacms:sitename}">
+    <meta name="description" content="{seacms:searchword},{seacms:sitename}">
+</head>
+
+<body>
+    {seacms:top}
+    <div class="icon">
+        <section class="idetail isear container">
+            <div class="col-l">
+                <div class="tv-hd v-border">
+                    <h2><span><em>{seacms:searchword}</em></span>相关视频</h2><span class="s_num">共有<em>{seacms:searchnum}</em>部</span>
+                </div>
+                <div class="tv-bd search-list">{seacms:searchlist size=10 order=time}
+                    <div class="item clearfix">
+                        <div class="item_pic">
+                            <img src="[searchlist:pic]" alt="[searchlist:name]">
+                            {if:"[searchlist:note]" <> "" }<span class="v-tips"><em>[searchlist:note]</em></span>{end if}<a href="[searchlist:link]" class="v-playBtn"><i></i></a>
+                        </div>
+                        <div class="item_txt">
+                            <div class="intro_con">
+                                <div class="tit">
+                                    <span class="s_score">[searchlist:score]分</span> <span class="s_tit"><a href="[searchlist:link]"><strong>[searchlist:name]</strong></a></span>
+                                    <span class="s_type">[[searchlist:typename]]</span>
+                                </div>
+                                <ul class="txt_list clearfix">
+                                <li class="clearfix"><em class="em_tit">导演：</em>{if:"[searchlist:director]"==""}未知{else}[searchlist:director]{end if}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em class="em_tit">年代：</em><em>[searchlist:publishtime]</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em class="em_tit">语言：</em><em>{if:"[searchlist:lang]"==""}内详{else}[searchlist:lang]{end if} </em></li>
+                                    <li class="clearfix"><em class="em_tit">主演：</em>[searchlist:actor len=60]</li>
+                                    <li class="li_intro clearfix">
+                                        <em class="em_tit">简介：</em>
+                                        <div class="p_intro">[searchlist:des len=100]</div>
+                                    </li>
+                                </ul>
+                                <p class="p_bottom"><a href="[searchlist:link]" class="v_yellow_btn"><i class="iconfont">&#xe630;</i> 立即播放</a></p>
+                            </div>
+                        </div>
+                    </div>{/seacms:searchlist}
+                    <div class="v-page clearfix"><a href="{searchlist:firstlink}" style="display:{if:{searchlist:page}>1}inline-block{else}none{end if}">首页</a>
+                            <a href="{searchlist:backlink}" style="display:{if:{searchlist:page}>1}inline-block{else}none{end if}">上一页</a> {searchlist:pagenumber len=6}<a href="[pagenumber:link]" class="{if:{searchlist:page}==[pagenumber:page]}cur{end if}">[pagenumber:page]</a>{/searchlist:pagenumber}
+                            <a href="{searchlist:nextlink}">下一页</a>
+                            <a href="{searchlist:lastlink}">尾页</a></div>
+                </div>
+            </div>
+            <div class="col-r">{seacms:menulist type=1,2}
+                <div class="tv-hd"><h2>[menulist:typename] • 热播榜</h2></div>
+                <div class="tv-bd">
+                    <ul class="v-rank clearfix">{seacms:videolist type=[menulist:typeid] order=hit num=9} {seacms:load block_ranking.html} {/seacms:videolist}
+                    </ul>
+                </div>{/seacms:menulist}
+            </div>
+        </section>
+    </div>
+    {seacms:foot}
+</body>
+
+</html>
+{/seacms:strip}

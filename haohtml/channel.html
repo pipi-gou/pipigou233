@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    {seacms:load block_header.html}
+    <title>{channelpage:typename}-{seacms:sitename}</title>
+    <meta name="keywords" content="{seacms:sitename},{seacms:sitename}">
+    <meta name="description" content="{seacms:sitename},{seacms:sitename}">
+</head>
+
+<body>
+    {seacms:top}
+    <div class="icon">
+        <div class="container">
+            <section class="imain clearfix">
+                <div class="col-l">
+                    <div class="tv-hd">
+                        <h2>热映影片</h2>
+                        <div class="imore"><a href="javascript:;" class="a_change">换一换<i class="iconfont">&#xe62d;</i></a><a href="/{seacms:sitepath}search.php?searchtype=5&tid={seacms:currenttypeid}">更多<i class="iconfont">&#xe613;</i></a></div>
+                    </div>
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">{seacms:videolist type={seacms:currenttypeid} num=1 order=hit}{seacms:load block_video_oen.html}{/seacms:videolist}</div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">{seacms:videolist type={seacms:currenttypeid} num=10 order=hit start=2}{seacms:load block_video_copy.html}{/seacms:videolist}</ul>
+                            </div>
+                        </div>
+                        <div class="aclcon2 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">{seacms:videolist type={seacms:currenttypeid} num=1 order=hit start=12}{seacms:load block_video_oen.html}{/seacms:videolist}</div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">{seacms:videolist type={seacms:currenttypeid} num=10 order=hit start=13}{seacms:load block_video_copy.html}{/seacms:videolist}</ul>
+                            </div>
+                        </div>
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">{seacms:videolist type={seacms:currenttypeid} num=1 order=hit start=24}{seacms:load block_video_oen.html}{/seacms:videolist}</div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">{seacms:videolist type={seacms:currenttypeid} num=10 order=hit start=25}{seacms:load block_video_copy.html}{/seacms:videolist}</ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-r">
+                    <div class="tv-hd">
+                        <h2>最近更新</h2></div>
+                    <div class="tv-bd">
+                        <ul class="v-rank clearfix">{seacms:videolist type={seacms:currenttypeid} num=10 order=time}{seacms:load block_ranking_copy.html}{/seacms:videolist}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            {seacms:menulist type=son}
+            <section class="imain clearfix">
+                <div class="col-l">
+                    <div class="tv-hd">
+                        <h2>[menulist:typename]</h2>
+                        <div class="imore"><a href="javascript:;" class="a_change">换一换<i class="iconfont">&#xe62d;</i></a><a href="/{seacms:sitepath}search.php?searchtype=5&tid=[menulist:typeid]">更多<i class="iconfont">&#xe613;</i></a></div>
+                    </div>
+                    <div class="tv-bd a_clist">
+                        <div class="aclcon1">
+                            <div class="tv-l">
+                                <div class="tvhots">{seacms:videolist type=[menulist:typeid] num=1 order=time}{seacms:load block_video_oen.html}{/seacms:videolist}</div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">{seacms:videolist type=[menulist:typeid] num=10 order=time start=2}{seacms:load block_video_copy.html}{/seacms:videolist}</ul>
+                            </div>
+                        </div>
+                        <div class="aclcon2 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">{seacms:videolist type=[menulist:typeid] num=1 order=time start=13}{seacms:load block_video_oen.html}{/seacms:videolist}</div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">{seacms:videolist type=[menulist:typeid] num=10 order=time start=14}{seacms:load block_video_copy.html}{/seacms:videolist}</ul>
+                            </div>
+                        </div>
+                        <div class="aclcon3 hide">
+                            <div class="tv-l">
+                                <div class="tvhots">{seacms:videolist type=[menulist:typeid] num=1 order=time start=25}{seacms:load block_video_oen.html}{/seacms:videolist}</div>
+                            </div>
+                            <div class="tv-r">
+                                <ul class="tv-list">{seacms:videolist type=[menulist:typeid] num=10 order=time start=26}{seacms:load block_video_copy.html}{/seacms:videolist}</ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-r">
+                    <div class="tv-hd">
+                        <h2>[menulist:typename] • 排行榜</h2></div>
+                    <div class="tv-bd">
+                        <ul class="v-rank clearfix">{seacms:videolist type=[menulist:typeid] num=10 order=hit}{seacms:load block_ranking_copy.html}{/seacms:videolist}
+                        </ul>
+                    </div>
+                </div>
+            </section>{/seacms:menulist}
+        </div>
+    </div>
+    {seacms:foot}
+</body>
+
+</html>

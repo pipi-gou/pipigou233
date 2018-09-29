@@ -1,0 +1,26 @@
+<!DOCTYPE html>{seacms:strip}
+<html lang="zh-cn">
+
+<head>
+    {seacms:load block_header.html}
+    <title>用户注册-{seacms:sitename}</title>
+    <meta name="keywords" content="用户注册-{seacms:sitename}">
+    <meta name="description" content="用户注册-{seacms:sitename}">
+</head>
+
+<body>
+	<div class="auth">
+		<div class="logo-auth">
+			</a><a href="http://{seacms:siteurl}"><img src="images/img/logo-auth.png" /></a>
+		</div>
+		<div class="form-box">
+			<h2 class="tit">新用户注册</h2>
+			<div class="form-body clearfix">
+			{register:viewRegister}
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+{/seacms:strip}

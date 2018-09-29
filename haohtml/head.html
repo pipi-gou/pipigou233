@@ -1,0 +1,23 @@
+    <header class="itopbar">
+    	<div class="iline mhide"></div>
+        <div class="container">
+            <h1 class="ilogo"><a href="http://{seacms:siteurl}" title="logo"><img src="images/img/logo.png" alt="{seacms:sitename}"><span>{seacms:sitename}</span></a></h1>
+            <nav class="sitenav"><a href="{seacms:indexlink}">首页</a>{seacms:menulist type=top}<a href="[menulist:link]"{if:[menulist:typeid]={seacms:currenttypeid}} class="cur"{end if}>[menulist:typename]</a>{/seacms:menulist}<a href="/{seacms:sitepath}search.php?searchtype=5&tid=0">筛选</a><a href="/{seacms:sitepath}mgtv.html">直播</a></nav>
+            <div class="itr">
+                <div class="mod">
+                    <a href="javascript:;"><i class="iconfont">&#xe62b;</i>看过<span class="caret"></span></a>
+                    <div class="dropdown right history clearfix" id="allhis">
+                        <div class="head">观看历史</div>
+                        <script type="text/javascript ">$MH.limit = 10;$MH.WriteHistoryBox(200, 170, 'font');$MH.recordHistory({name: '{playpage:name}',link: '{playpage:url}',pic: '{playpage:pic}'})</script>
+                    </div>
+                </div>
+                <div class="mod"><a href="/{seacms:sitepath}member.php" class="ilogin"><i class="iconfont">&#xe62c;</i>会员</a></div>
+            </div>
+            <span class="searchstart-on"><i class="iconfont">&#xe61e;</i></span><span class="searchstart-off"><i class="iconfont">&#xe622;</i></span>
+            <form name="formsearch" class="searchform" action="/{seacms:sitepath}search.php" method="post" autocomplete="off">
+                <input class="ipt" placeholder="输入影片关键词..." name="searchword" type="text" id="keyword" required="">
+                <input type="submit" id="searchbutton" value="" class="hide"><a href="javascript:" class="ibtn" title="搜索" onclick="$('.searchform').submit();"><i class="iconfont">&#xe61e;</i> 搜索</a>
+            </form>
+            <span class="mgoback"><a href="javascript:history.go(-1);"><i class="iconfont">&#xe602;</i></a></span>
+        </div>
+    </header>
